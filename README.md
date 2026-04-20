@@ -1,12 +1,12 @@
 # Bookly customer support agent (demo)
 
-Structured Python demo for a conversational support agent for the fictional bookstore **Bookly**. Stack: LangGraph, OpenAI chat, Voyage AI embeddings, MongoDB Atlas (data + vector store + LangGraph checkpoints), Deepgram (Nova STT, Aura TTS), Arize Phoenix tracing (via OpenInference), Streamlit UI.
+Structured Python demo for a conversational support agent for the fictional bookstore **Bookly**. Stack: LangGraph, OpenAI chat, Voyage AI embeddings, MongoDB Atlas (data + vector store + LangGraph checkpoints), Arize Phoenix tracing (via OpenInference), Streamlit UI.
 
 ## Prerequisites
 
 - Python 3.11 or newer recommended
 - MongoDB Atlas cluster (M10+ recommended for Atlas Search; vector search indexes are not available on M0 in some accounts; check your Atlas tier)
-- API keys: OpenAI, Voyage AI, Deepgram
+- API keys: OpenAI, Voyage AI
 
 ## Setup
 
@@ -19,7 +19,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-1. Copy `.env.example` to `.env` and set `MONGODB_URI`, `OPENAI_API_KEY`, `VOYAGE_API_KEY`, and `DEEPGRAM_API_KEY`.
+1. Copy `.env.example` to `.env` and set `MONGODB_URI`, `OPENAI_API_KEY`, `VOYAGE_API_KEY`.
 2. Create the **Atlas Vector Search** index on the `policies` collection **before** or **after** seeding (name must match `MONGODB_VECTOR_INDEX_NAME`, default `bookly_policy_vector_index`).
 
 ### Vector index definition
@@ -120,7 +120,6 @@ At least one customer (**Alice Reader**) has orders in `orders`.
 | `voyage_embeddings.py` | LangChain `Embeddings` wrapper over `voyageai.Client`             |
 | `database_seed.py`     | Customers, orders, policy chunks + embeddings                     |
 | `tools.py`             | LangChain tools (orders, customers, refund update, policy search) |
-| `audio_handler.py`     | Deepgram REST STT/TTS                                             |
 | `agent.py`             | LangGraph + Phoenix instrumentation + MongoDB checkpointer        |
 | `app.py`               | Streamlit text/voice UI                                           |
 
