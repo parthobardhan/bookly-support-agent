@@ -121,6 +121,6 @@ At least one customer (**Alice Reader**) has orders in `orders`.
 | `database_seed.py`     | Customers, orders, policy chunks + embeddings                     |
 | `tools.py`             | LangChain tools (orders, customers, refund update, policy search) |
 | `agent.py`             | LangGraph + Phoenix instrumentation + MongoDB checkpointer        |
-| `app.py`               | Streamlit text/voice UI                                           |
+| `app.py`               | Streamlit text chat UI                                            |
 
 
