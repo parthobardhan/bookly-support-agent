@@ -20,17 +20,3 @@ VOYAGE_EMBED_DIMENSIONS = int(os.getenv("VOYAGE_EMBED_DIMENSIONS", "1024"))
 
 # OpenAI chat model (set OPENAI_MODEL to your available chat model)
 OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o")
-
-# Deepgram — batch STT (fallback) and Aura TTS model name (REST + Speak WS)
-DEEPGRAM_STT_MODEL = os.getenv("DEEPGRAM_STT_MODEL", "nova-2")
-DEEPGRAM_TTS_MODEL = os.getenv("DEEPGRAM_TTS_MODEL", "aura-2-thalia-en")
-
-# Flux Listen v2 (streaming STT with end-of-turn)
-DEEPGRAM_FLUX_MODEL = os.getenv("DEEPGRAM_FLUX_MODEL", "flux-general-en")
-FLUX_EOT_THRESHOLD = os.getenv("FLUX_EOT_THRESHOLD", "0.7")
-FLUX_EOT_TIMEOUT_MS = int(os.getenv("FLUX_EOT_TIMEOUT_MS", "5000"))
-_eager = os.getenv("FLUX_EAGER_EOT_THRESHOLD")
-FLUX_EAGER_EOT_THRESHOLD = _eager if _eager else None
-
-# Speak v1 WebSocket (streaming TTS) — linear16; packaged as WAV for st.audio
-DEEPGRAM_SPEAK_SAMPLE_RATE = int(os.getenv("DEEPGRAM_SPEAK_SAMPLE_RATE", "24000"))
