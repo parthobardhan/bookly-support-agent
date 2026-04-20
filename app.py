@@ -18,7 +18,6 @@ load_dotenv()
 REQUIRED_KEYS = (
     "OPENAI_API_KEY",
     "VOYAGE_API_KEY",
-    "DEEPGRAM_API_KEY",
     "MONGODB_URI",
 )
 
